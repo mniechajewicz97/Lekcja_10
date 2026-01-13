@@ -73,12 +73,5 @@ kawka.makeSound();
     for (Vehicle vehicle : refuelableList)
         vehicle.refuel();
 
-
-
-
-
-
-
-
     }
 
