@@ -16,7 +16,7 @@ public abstract class Vehicle {
         return yearOfProduction;
     }
     public String toString()    {
-        return brand + ", rok produkcji " + yearOfProduction;
+        return brand + ", year of production " + yearOfProduction;
     }
     public void refuel()   {
         System.out.println("Vehicule is refueling!");
