@@ -1,4 +1,4 @@
-public class Hybrid extends Vehicle {
+public class Hybrid extends Vehicle implements Chargeable, Refuelable {
     public Hybrid(String brand, int yearOfProduction) {
         super(brand, yearOfProduction);
     }

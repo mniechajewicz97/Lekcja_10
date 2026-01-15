@@ -1,12 +1,9 @@
-public abstract class Vehicle {
+public abstract class Vehicle implements Chargeable {
     private String brand;
     private int yearOfProduction;
     public Vehicle(String brand, int yearOfProduction) {
         this.brand = brand;
         this.yearOfProduction = yearOfProduction;
-    }
-
-    protected Vehicle() {
     }
 
     public String getBrand() {

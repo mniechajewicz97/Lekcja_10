@@ -1,4 +1,4 @@
-public class Electric extends Vehicle {
+public class Electric extends Vehicle implements Chargeable {
     public Electric(String brand, int yearOfProduction) {
         super(brand, yearOfProduction);
     }

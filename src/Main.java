@@ -73,5 +73,50 @@ kawka.makeSound();
     for (Vehicle vehicle : refuelableList)
         vehicle.refuel();
 
+    //Zadanie 2 — Pracownicy i role (interfejsy jako “zdolności”)
+    //Stwórz program z pracownikami.
+    //
+    //Wymagania:
+    //
+    //Zrób abstrakcyjną klasę Employee z imieniem i podstawową pensją oraz metodą zwracającą opis pracownika.
+    //Zrób 3 typy pracowników dziedziczące po Employee: Developer, Manager, Intern.
+    //Zrób interfejs BonusEligible (ma metodę liczącą bonus) i interfejs Reportable (ma metodę zwracającą raport tekstowy).
+    //Developer ma być BonusEligible.
+    //Manager ma być BonusEligible i Reportable (implementuje oba).
+    //Intern ma być tylko Reportable.
+    //W main utwórz listę wszystkich pracowników i wypisz opisy, a potem osobno przetestuj bonusy (lista BonusEligible) i raporty (lista Reportable) w pętli.
+
+    System.out.println();
+
+    Developer developer = new Developer("Bożydar Ropniak",20000);
+    Intern intern = new Intern("Izydor Wągier",25);
+    Manager manager = new Manager("Wacław Waligóra", 25000);
+
+    List<Employee> employees = new ArrayList<>();
+    employees.add(developer);
+    employees.add(manager);
+    employees.add(intern);
+
+
+    for  (Employee employee : employees)
+        System.out.println(employee.toString());
+
+    List<BonusEligible> bonusList = new ArrayList<>();
+    bonusList.add(developer);
+    bonusList.add(manager);
+
+    for (BonusEligible employee : bonusList)
+        System.out.println(employee.calculateBonus());
+
+    List <Reportable> reportableList = new ArrayList<>();
+    reportableList.add(manager);
+    reportableList.add(intern);
+
+    for (Reportable employee : reportableList)
+        employee.report();
+
+
+
+
     }
 

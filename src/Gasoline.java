@@ -1,4 +1,4 @@
-public class Gasoline extends Vehicle {
+public class Gasoline extends Vehicle implements Refuelable {
     public Gasoline(String brand, int yearOfProduction) {
         super(brand, yearOfProduction);
     }
