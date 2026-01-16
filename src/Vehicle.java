@@ -1,4 +1,4 @@
-public abstract class Vehicle implements Chargeable {
+public abstract class Vehicle implements Chargeable, Refuelable {
     private String brand;
     private int yearOfProduction;
     public Vehicle(String brand, int yearOfProduction) {

@@ -53,16 +53,18 @@ kawka.makeSound();
     cars.add(bmw);
     cars.add(skoda);
 
-    for (Vehicle vehicle : cars)
+    for (Vehicle vehicle : cars) {
         System.out.println(vehicle.toString());
+    }
     System.out.println();
 
     List<Vehicle> chargeableList = new ArrayList<>();
     chargeableList.add(tesla);
     chargeableList.add(hyundai);
     chargeableList.add(skoda);
-    for (Vehicle vehicle : chargeableList)
+    for (Vehicle vehicle : chargeableList) {
         vehicle.charge();
+    }
     System.out.println();
 
     List<Vehicle> refuelableList = new ArrayList<>();
@@ -70,9 +72,9 @@ kawka.makeSound();
     refuelableList.add(hyundai);
     refuelableList.add(skoda);
     refuelableList.add(bmw);
-    for (Vehicle vehicle : refuelableList)
+    for (Vehicle vehicle : refuelableList) {
         vehicle.refuel();
-
+    }
     //Zadanie 2 — Pracownicy i role (interfejsy jako “zdolności”)
     //Stwórz program z pracownikami.
     //
@@ -98,22 +100,63 @@ kawka.makeSound();
     employees.add(intern);
 
 
-    for  (Employee employee : employees)
+    for  (Employee employee : employees) {
         System.out.println(employee.toString());
-
+    }
     List<BonusEligible> bonusList = new ArrayList<>();
     bonusList.add(developer);
     bonusList.add(manager);
 
-    for (BonusEligible employee : bonusList)
+    for (BonusEligible employee : bonusList) {
         System.out.println(employee.calculateBonus());
-
+    }
     List <Reportable> reportableList = new ArrayList<>();
     reportableList.add(manager);
     reportableList.add(intern);
 
-    for (Reportable employee : reportableList)
+    for (Reportable employee : reportableList) {
         employee.report();
+    }
+    System.out.println();
+    System.out.println("Zadanie 3 z interfejsów");
+//Zadanie 3 — Dokumenty: drukowanie i zapisywanie
+//
+//
+//Stwórz program z dokumentami.
+//
+//Wymagania:
+//
+//Zrób abstrakcyjną klasę Document z tytułem oraz metodą, która zwraca treść dokumentu (abstrakcyjna).
+//Zrób 3 typy dokumentów dziedziczące po Document: Invoice, Note, Contract.
+//Zrób interfejs Printable (metoda print() zwraca tekst do wydruku) i interfejs Savable (metoda save(String fileName)
+// – na razie może tylko wypisywać w konsoli, że “zapisano”).
+//Invoice ma być Printable i Savable.
+//Note ma być tylko Printable.
+//Contract ma być tylko Savable.
+//W main utwórz listę dokumentów i wypisz ich treść, a potem osobno przetestuj drukowanie (lista Printable) i zapisywanie (lista Savable) w pętli.
+
+Invoice invoice = new Invoice("Travel Invoice");
+Contract contract = new Contract("Job Contract");
+Note note = new Note("Java Notebook");
+
+List<Document> documentsList = new ArrayList<>();
+documentsList.add(invoice);
+documentsList.add(contract);
+documentsList.add(note);
+
+for (Document document : documentsList) {
+    document.documentsDetails();
+}
+    System.out.println();
+List<Savable> savableList = new ArrayList<>();
+savableList.add(invoice);
+savableList.add(contract);
+
+List<Printable> printableList = new ArrayList<>();
+printableList.add(invoice);
+printableList.add(note);
+for (Printable printable : printableList)
+    printable.print();
 
 
 
