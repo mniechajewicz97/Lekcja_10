@@ -1,3 +1,3 @@
 public interface Savable {
-    public void save();
+    public void save(String fileName);
 }

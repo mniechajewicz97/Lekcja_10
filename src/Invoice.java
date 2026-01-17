@@ -12,7 +12,7 @@ public class Invoice extends Document implements Printable, Savable{
         System.out.println( getTitle() + " is printing!");
     }
     @Override
-    public void save() {
-        System.out.println("Invoice has been saved: " + getTitle());
+    public void save(String fileName) {
+        System.out.println("Invoice has been saved: " + fileName);
     }
 }

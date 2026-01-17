@@ -1,7 +1,7 @@
 void main() {
 
-Bird kawka = new Bird("Kawka",2025, 10);
-kawka.makeSound();
+    Bird kawka = new Bird("Kawka", 2025, 10);
+    kawka.makeSound();
 //Nie mozemy stowrzyc instancjintej klasy bo jest abstrakcyjna co broni nas przed blednymi instancjami ktore nie maja sensu
 //Animal animal = new Animal("dupa", 2025);
     //klasa abstrakcyjna
@@ -40,11 +40,11 @@ kawka.makeSound();
     System.out.println("----------------------------------");
     System.out.println("Zadanie 1 z interfejsów");
     System.out.println();
-    Gasoline audi = new Gasoline("Audi",2006);
-    Gasoline bmw = new Gasoline("BMW",2002);
-    Electric tesla = new Electric("Tesla",2025);
-    Hybrid hyundai = new Hybrid("Hyundai",2025);
-    Hybrid skoda = new Hybrid("Skoda",2020);
+    Gasoline audi = new Gasoline("Audi", 2006);
+    Gasoline bmw = new Gasoline("BMW", 2002);
+    Electric tesla = new Electric("Tesla", 2025);
+    Hybrid hyundai = new Hybrid("Hyundai", 2025);
+    Hybrid skoda = new Hybrid("Skoda", 2020);
     List<Vehicle> cars = new ArrayList<>();
 
     cars.add(audi);
@@ -90,8 +90,8 @@ kawka.makeSound();
 
     System.out.println();
 
-    Developer developer = new Developer("Bożydar Ropniak",20000);
-    Intern intern = new Intern("Izydor Wągier",25);
+    Developer developer = new Developer("Bożydar Ropniak", 20000);
+    Intern intern = new Intern("Izydor Wągier", 25);
     Manager manager = new Manager("Wacław Waligóra", 25000);
 
     List<Employee> employees = new ArrayList<>();
@@ -100,7 +100,7 @@ kawka.makeSound();
     employees.add(intern);
 
 
-    for  (Employee employee : employees) {
+    for (Employee employee : employees) {
         System.out.println(employee.toString());
     }
     List<BonusEligible> bonusList = new ArrayList<>();
@@ -110,7 +110,7 @@ kawka.makeSound();
     for (BonusEligible employee : bonusList) {
         System.out.println(employee.calculateBonus());
     }
-    List <Reportable> reportableList = new ArrayList<>();
+    List<Reportable> reportableList = new ArrayList<>();
     reportableList.add(manager);
     reportableList.add(intern);
 
@@ -136,34 +136,90 @@ kawka.makeSound();
 //Contract ma być tylko Savable.
 //W main utwórz listę dokumentów i wypisz ich treść, a potem osobno przetestuj drukowanie (lista Printable) i zapisywanie (lista Savable) w pętli.
 
-Invoice invoice = new Invoice("Travel Invoice");
-Contract contract = new Contract("Job Contract");
-Note note = new Note("Java Notebook");
+    Invoice invoice = new Invoice("Travel Invoice");
+    Contract contract = new Contract("Job Contract");
+    Note note = new Note("Java Notebook");
 
-List<Document> documentsList = new ArrayList<>();
-documentsList.add(invoice);
-documentsList.add(contract);
-documentsList.add(note);
+    List<Document> documentsList = new ArrayList<>();
+    documentsList.add(invoice);
+    documentsList.add(contract);
+    documentsList.add(note);
 
-for (Document document : documentsList) {
-    document.documentsDetails();
-}
+    for (Document document : documentsList) {
+        document.documentsDetails();
+    }
     System.out.println();
-List<Savable> savableList = new ArrayList<>();
-savableList.add(invoice);
-savableList.add(contract);
-for (Savable savable : savableList) {
-    savable.save();
-}
-System.out.println();
-List<Printable> printableList = new ArrayList<>();
-printableList.add(invoice);
-printableList.add(note);
-for (Printable printable : printableList)
-    printable.print();
+    List<Savable> savableList = new ArrayList<>();
+    savableList.add(invoice);
+    savableList.add(contract);
+    for (Savable savable : savableList) {
+        savable.save("Plik");
+    }
+    System.out.println();
+    List<Printable> printableList = new ArrayList<>();
+    printableList.add(invoice);
+    printableList.add(note);
+    for (Printable printable : printableList)
+        printable.print();
 
+    System.out.println();
+    System.out.println("Zadanie 4 z inerfejsów");
+    System.out.println();
+//Zadanie 4 — Pliki: czytanie, pisanie, kompresja
+//
+//
+//Stwórz program z plikami.
+//
+//Wymagania:
+//
+//Zrób abstrakcyjną klasę FileResource z nazwą pliku i metodą zwracającą opis.
+//Zrób 3 typy plików dziedziczące po FileResource: TextFile, ReadOnlyFile, ZipArchive.
+//Zrób interfejs Readable (metoda read()), Writable (metoda write(String text)), Compressible (metoda compress()).
+//TextFile ma implementować Readable, Writable i Compressible (wszystkie trzy).
+//ReadOnlyFile ma implementować tylko Readable.
+//ZipArchive ma implementować Readable i Compressible.
+//W main utwórz listę wszystkich plików i wypisz opisy, a potem osobno przetestuj czytanie (lista Readable),
+// pisanie (lista Writable) i kompresję (lista Compressible) w pętli.
 
+    TextFile textFile = new TextFile("TextFile");
+    ReadOnlyFile readOnlyFile = new ReadOnlyFile("Reader");
+    ZipArchive zipArchive = new ZipArchive("ZipArchive");
 
+    List<FileResource> fileResourceList = new ArrayList<>();
+    fileResourceList.add(textFile);
+    fileResourceList.add(readOnlyFile);
+    fileResourceList.add(zipArchive);
+
+    for (FileResource fileResource : fileResourceList) {
+        System.out.println(fileResource.toString());
+    }
+
+    System.out.println();
+    List<Readable> readableList = new ArrayList<>();
+    readableList.add(readOnlyFile);
+    readableList.add(zipArchive);
+    readableList.add(textFile);
+
+    for (Readable readable : readableList) {
+        System.out.println(readable.read());
+    }
+    System.out.println();
+
+    List<Writable> writableList = new ArrayList<>();
+    writableList.add(textFile);
+    for (Writable writable : writableList) {
+        System.out.println(writable.write("I can write like a dog"));
 
     }
+    System.out.println();
+
+    List<Compressible> compressibleList = new ArrayList<>();
+    compressibleList.add(textFile);
+    compressibleList.add(zipArchive);
+    for (Compressible compressible : compressibleList) {
+        compressible.compress();
+    }
+
+
+}
 
