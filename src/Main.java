@@ -58,21 +58,21 @@ kawka.makeSound();
     }
     System.out.println();
 
-    List<Vehicle> chargeableList = new ArrayList<>();
+    List<Chargeable> chargeableList = new ArrayList<>();
     chargeableList.add(tesla);
     chargeableList.add(hyundai);
     chargeableList.add(skoda);
-    for (Vehicle vehicle : chargeableList) {
+    for (Chargeable vehicle : chargeableList) {
         vehicle.charge();
     }
     System.out.println();
 
-    List<Vehicle> refuelableList = new ArrayList<>();
+    List<Refuelable> refuelableList = new ArrayList<>();
     refuelableList.add(audi);
     refuelableList.add(hyundai);
     refuelableList.add(skoda);
     refuelableList.add(bmw);
-    for (Vehicle vehicle : refuelableList) {
+    for (Refuelable vehicle : refuelableList) {
         vehicle.refuel();
     }
     //Zadanie 2 — Pracownicy i role (interfejsy jako “zdolności”)
@@ -119,6 +119,7 @@ kawka.makeSound();
     }
     System.out.println();
     System.out.println("Zadanie 3 z interfejsów");
+    System.out.println();
 //Zadanie 3 — Dokumenty: drukowanie i zapisywanie
 //
 //
@@ -151,7 +152,10 @@ for (Document document : documentsList) {
 List<Savable> savableList = new ArrayList<>();
 savableList.add(invoice);
 savableList.add(contract);
-
+for (Savable savable : savableList) {
+    savable.save();
+}
+System.out.println();
 List<Printable> printableList = new ArrayList<>();
 printableList.add(invoice);
 printableList.add(note);

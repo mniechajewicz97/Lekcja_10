@@ -7,7 +7,7 @@ public class Intern extends Employee implements Reportable {
         return "This is " + getData() + ", he/ she gains nothing";
     }
     @Override
-    public void report() {
-        System.out.println("Do you need more coffee sir?");
+    public String report() {
+       return "Do you need more coffee sir?";
     }
 }

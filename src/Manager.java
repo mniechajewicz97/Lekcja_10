@@ -7,7 +7,7 @@ public class Manager extends Employee implements BonusEligible, Reportable {
         return getSalaryBase()* 20/ 100;
    }
    @Override
-    public void report() {
-        System.out.println("This is very confidential report");
+    public String report() {
+       return "This is very confidential report";
    }
 }

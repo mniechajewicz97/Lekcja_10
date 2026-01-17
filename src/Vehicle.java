@@ -1,4 +1,4 @@
-public abstract class Vehicle implements Chargeable, Refuelable {
+public abstract class Vehicle   {
     private String brand;
     private int yearOfProduction;
     public Vehicle(String brand, int yearOfProduction) {
@@ -14,12 +14,6 @@ public abstract class Vehicle implements Chargeable, Refuelable {
     }
     public String toString()    {
         return brand + ", year of production " + yearOfProduction;
-    }
-    public void refuel()   {
-        System.out.println("Vehicule is refueling!");
-    }
-    public void charge ()  {
-        System.out.println("Vehicule is charging!");
     }
 }
 

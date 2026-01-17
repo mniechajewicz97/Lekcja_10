@@ -6,6 +6,8 @@ public class Contract extends Document implements Savable{
     public void documentsDetails() {
         System.out.println("Contract obliges two sides");
     }
-    public void save(String fileName) {
+    @Override
+    public void save() {
+        System.out.println("Contract has been saved:" + getTitle());
     }
 }
