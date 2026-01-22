@@ -17,13 +17,7 @@ void main() {
     pigeon.fly();
 
 
-    //Hashcode i Equals
 
-    String asd1 = "test"; //23123123
-    String asd2 = "test";
-
-    System.out.println(asd1 == asd2);
-    System.out.println(asd1 == new String("test")); //6432545
 //zad 1 Stwórz program z pojazdami.
 //
 //Wymagania:
@@ -54,7 +48,7 @@ void main() {
     cars.add(skoda);
 
     for (Vehicle vehicle : cars) {
-        System.out.println(vehicle.toString());
+        System.out.println(vehicle);
     }
     System.out.println();
 
@@ -101,7 +95,7 @@ void main() {
 
 
     for (Employee employee : employees) {
-        System.out.println(employee.toString());
+        System.out.println(employee);
     }
     List<BonusEligible> bonusList = new ArrayList<>();
     bonusList.add(developer);
@@ -115,7 +109,7 @@ void main() {
     reportableList.add(intern);
 
     for (Reportable employee : reportableList) {
-        employee.report();
+        System.out.println(employee.report());
     }
     System.out.println();
     System.out.println("Zadanie 3 z interfejsów");
@@ -159,9 +153,9 @@ void main() {
     List<Printable> printableList = new ArrayList<>();
     printableList.add(invoice);
     printableList.add(note);
-    for (Printable printable : printableList)
+    for (Printable printable : printableList) {
         printable.print();
-
+}
     System.out.println();
     System.out.println("Zadanie 4 z inerfejsów");
     System.out.println();
@@ -191,7 +185,7 @@ void main() {
     fileResourceList.add(zipArchive);
 
     for (FileResource fileResource : fileResourceList) {
-        System.out.println(fileResource.toString());
+        System.out.println(fileResource);
     }
 
     System.out.println();
@@ -219,7 +213,34 @@ void main() {
     for (Compressible compressible : compressibleList) {
         compressible.compress();
     }
+    System.out.println();
+    //Hashcode i Equals
+    //2 sposoby
+    // == albo .equals()
+    // == porownuje referencje obiektu czyli mozna powiedziec ze sprawdza gdzie ten element jest w pamieci po HashCode
+    // equals pozwala nam porownac wartosc (pola obiektu)
+    System.out.println("\n");
+    System.out.println("HASH CODE I EQUALS");
+    String asd1 = "test";
+    String asd2 = "test";
+    System.out.println(asd1 == asd2);
+    String asd3 = new String("test");
+    System.out.println(asd1 == asd3);
+    System.out.println(asd1.equals(asd3));
 
+
+    Developer emp1 = new Developer("asd", 1);
+    Developer emp2 = new Developer("asd", 1);
+
+    System.out.println(emp1 == emp2); // false bo rozne obiekty i rozna referencja
+
+    System.out.println(emp1.equals(emp2)); // true bo nadpisalismy i java wie jak je porownac
+    System.out.println(emp1.hashCode() == emp2.hashCode()); // bedzie true bo nadpisalismy hashCode
+
+    System.out.println(emp1.hashCode() + " emp1");
+    System.out.println(emp2.hashCode() + " emp2");
+    //ZAWSZE NADPISUJE EQUALS I HASHCODE RAZEM
+    //JAK 2 OBIEKTY SA EQUALS TO MAJA TEN SAM HASHCODE ALE JAK 2 OBIEKTY MAJA TEN SAM HASHCODE TO NIE MUSZA BYC EQUALS (HASH COLISION)
 
 }
 
